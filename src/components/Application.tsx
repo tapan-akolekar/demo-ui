@@ -6,6 +6,7 @@ const Application = () => {
         <div>
             <Card>
             <h5>This is application page!!</h5>
+            <br></br>
             </Card>
         </div>
     );

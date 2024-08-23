@@ -11,6 +11,7 @@ import Application from "./Application";
 import AuthServer from "./AuthServer";
 import MyInfo from "./MyInfo";
 import Support from "./Support";
+import Footer from "./Footer";
   
   
   export const AppRoutes = () => {
@@ -19,11 +20,12 @@ import Support from "./Support";
         <Router>
         <Routes>
           {/* <Route path="/" element={<Header />} /> */}
-          <Route path="/home" element={<Home />} />
-          <Route path="/application" element={<Application />} />
-          <Route path="/authserver" element={<AuthServer />} />
-          <Route path="/myInfo" element={<MyInfo />} />
-          <Route path="/support" element={<Support />} />
+          <Route path="/https://okta.deere.com/selfServiceTool/" element={<Home />} />
+          <Route path="/https://okta.deere.com/selfServiceTool/appCreation" element={<Application />} />
+          <Route path="/https://okta.deere.com/selfServiceTool/authServerMenu" element={<AuthServer />} />
+          <Route path="/https://okta.deere.com/selfServiceTool/userInfo" element={<MyInfo />} />
+          <Route path="https://okta.deere.com/selfServiceTool/support" element={<Support />} />
+          <Route path="/footer" element={<Footer />} />
         </Routes>
       </Router>
     );

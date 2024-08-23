@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <div className="header">
       <header className="d-flex flex-wrap justify-content-left py-2 mb-2 border-bottom ">
-        <span className="fs-4">Simple header</span>
+        <span className="fs-4">Simple Header</span>
       </header>
 
       <nav className="navbar-expand-md navbar-light bg-light mb-1 border-bottom">
@@ -16,7 +16,7 @@ const Header = () => {
               className="nav-link"
               role="button"
               aria-expanded="false"
-              href="/home"
+              href="/https://okta.deere.com/selfServiceTool/"
             >
               <IoMdHome  className="icon"/>
             </a>
@@ -29,7 +29,7 @@ const Header = () => {
               role="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"
-              href="application"
+              href="/https://okta.deere.com/selfServiceTool/appCreation"
             >
               Application
             </a>
@@ -47,7 +47,7 @@ const Header = () => {
               className="nav-link"
               role="button"
               aria-expanded="false"
-              href="/authserver"
+              href="/https://okta.deere.com/selfServiceTool/authServerMenu"
             >
              Auth Server
             </a>
@@ -57,7 +57,7 @@ const Header = () => {
               className="nav-link"
               role="button"
               aria-expanded="false"
-              href="/myInfo"
+              href="/https://okta.deere.com/selfServiceTool/userInfo"
             >
              My Info
             </a>
@@ -67,7 +67,7 @@ const Header = () => {
               className="nav-link"
               role="button"
               aria-expanded="false"
-              href="/support"
+              href="/https://okta.deere.com/selfServiceTool/support"
             >
              Support
             </a>
