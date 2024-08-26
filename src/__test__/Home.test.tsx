@@ -4,8 +4,8 @@ import { render, screen } from '@testing-library/react';
 import Home from '../components/Home';
 
 describe('Home component', () => {
-  it('renders "Hello!" text', () => {
+  it('renders "home" text', () => {
     render(<Home />);
-    expect(screen.getByText('Hello World!!')).toBeInTheDocument();
+    expect(screen.getByText('This is Home Page !')).toBeInTheDocument();
   });
 });

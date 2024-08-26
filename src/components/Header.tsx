@@ -35,7 +35,7 @@ const Header = () => {
             </a>
             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
               <li>
-                <a className="dropdown-item" href="#">
+                <a className="dropdown-item" href="/addApplication">
                  Add Application
                 </a>
               </li>
