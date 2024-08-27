@@ -1,11 +1,9 @@
 import {
     Route,
     BrowserRouter as Router,
-   
     Routes,
    
   } from "react-router-dom";
-import Header from "./Header";
 import Home from "./Home";
 import Application from "./Application";
 import AuthServer from "./AuthServer";
@@ -19,7 +17,6 @@ import Footer from "./Footer";
     return (
         <Router>
         <Routes>
-          {/* <Route path="/" element={<Header />} /> */}
           <Route path="/https://okta.deere.com/selfServiceTool/" element={<Home />} />
           <Route path="/https://okta.deere.com/selfServiceTool/appCreation" element={<Application />} />
           <Route path="/https://okta.deere.com/selfServiceTool/authServerMenu" element={<AuthServer />} />
