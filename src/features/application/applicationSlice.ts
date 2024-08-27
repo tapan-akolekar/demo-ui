@@ -4,12 +4,16 @@ import axios from 'axios';
 
 interface UserData {
   id: number;
-  name: string;
-  email: string;
+  appName: string;
+  clientOrOktaId:number;
+  oktaDomain:string;
+  signOnMode:string;
+  status:string;
+  appUrl: string;
 }
 
 interface UserState {
-  data: UserData | null;
+  data: UserData [] | null;
   loading: boolean;
   error: string | null;
 }
@@ -21,9 +25,14 @@ const initialState: UserState = {
 };
 
 export const fetchUserData = createAsyncThunk('user/fetchUserData', async () => {
-    const response = await axios.get('http://jsonplaceholder.typicode.com/users/1');
-    return response.data;
+  const response = await axios.get('http://localhost:8084/app/appList', {
+    // headers: {
+     
+      
+    // },
   });
+  return response.data;
+});
 
 const applicationSlice = createSlice({
   name: 'user',
@@ -40,7 +49,7 @@ const applicationSlice = createSlice({
       })
       .addCase(fetchUserData.rejected, (state, action) => {
         state.loading = false;
-        // state.error = action.error.message;
+        //  state.error = action.error.message;
       });
   },
 });

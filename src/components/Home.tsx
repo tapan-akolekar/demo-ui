@@ -1,45 +1,59 @@
-import React, { useEffect } from 'react';
-import { fetchUserData } from '../features/application/applicationSlice';
-import { useAppDispatch, useAppSelector } from '../app/hooks';
-import Card from './Card/Card';
-
+import React, { useState } from "react";
+import { fetchUserData } from "../features/application/applicationSlice";
+import { useAppDispatch, useAppSelector } from "../app/hooks";
+import Card from "./Card/Card";
 
 const Home = () => {
   const dispatch = useAppDispatch();
   const { data, loading, error } = useAppSelector((state) => state.user);
+  const [showData, setShowData] = useState(false);
 
-  useEffect(() => {
+  const handleClick = () => {
     dispatch(fetchUserData());
-  }, [dispatch]);
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
+    setShowData(true);
+  };
 
   return (
- 
-    <div className='home'>
+    <div className="home">
       <Card>
-      <div>
-  
-  {data ? (
-    <div>
-      <h5>User Data:</h5>
-      <p>ID: {data.id}</p>
-      <p>Name: {data.name}</p>
-      <p>Email: {data.email}</p>
-    </div>
-  ) : (
-    <div>No user data found.</div>
-  )}
-</div>
+        <br></br>
+        <br></br>
+        <br></br>
+        <button onClick={handleClick}>Search Data</button>
+        <br></br>
+        <br></br>
+        {showData && data && (
+          <table>
+            <thead>
+              <tr>
+                <th>AppName</th>
+                <th>Client/Okta ID</th>
+                <th>Okta Domain</th>
+                <th>Sign On Mode</th>
+                <th>Status</th>
+                <th>AppUrl</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.map((userData) => (
+                <tr key={userData.id}>
+                  <td>{userData.appName}</td>
+                  <td>{userData.clientOrOktaId}</td>
+                  <td>{userData.oktaDomain}</td>
+                  <td>{userData.signOnMode}</td>
+                  <td>{userData.status}</td>
+                  <td>{userData.appUrl}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+        {loading && <div>Loading...</div>}
+        {error && <div>Error: {error}</div>}
+        <br></br>
+        <br></br>
       </Card>
     </div>
   );
 };
-
 export default Home;
