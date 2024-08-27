@@ -43,7 +43,7 @@ const config: Config.InitialOptions = {
   transform: {
     '^.+\\.(ts|tsx)$': '<rootDir>/node_modules/ts-jest',
     // '^.+\\.(js|jsx)$': 'babel-jest',
-    '^.+\\.(ts|tsx)?$': 'ts-jest',
+    // '^.+\\.(ts|tsx)?$': 'ts-jest',
     '^.+\\.(js|jsx)$': '<rootDir>/node_modules/babel-jest',
     '^.+.(css|styl|less|scss|sass)$': 'jest-transform-stub',
     '\\.(jpg|jpeg|png|gif|webp|svg)$': 'jest-transform-stub',
