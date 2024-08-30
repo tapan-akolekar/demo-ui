@@ -14,22 +14,30 @@ const AuthServer = () => {
   const [data, setData] = useState<DataType[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const access_token = localStorage.getItem("access_token");
   useEffect(() => {
     const fetchData = async () => {
       try {
+        const config = {
+          headers: {
+            Authorization: `Bearer ${access_token}`,
+          },
+        };
         const response = await axios.get(
-          "http://localhost:8084/authServer/authServerList"
+          "http://localhost:8084/authServer/authServerList",
+          config
         );
         const data = response.data;
         setData(data);
         setLoading(false);
       } catch (error: any) {
-        setError(error);
+        setError(error.message);
+        setLoading(false);
         setLoading(false);
       }
     };
     fetchData();
-  }, []);
+  }, [access_token]);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -38,11 +46,6 @@ const AuthServer = () => {
   if (error) {
     return <div>Error: {error}</div>;
   }
-
-  // console.log("Data", data);
-  console.log("Hello!");
-  console.warn("Careful there!");
-  console.error("Oh, no!");
 
   return (
     <div>

@@ -8,6 +8,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 // };
 
 // export default Login;
+//with token
 
 const Login = () => {
   const { loginWithPopup, getAccessTokenSilently } = useAuth0();
@@ -15,10 +16,9 @@ const Login = () => {
   const handleLogin = async () => {
     try {
       await loginWithPopup();
-      const token = await getAccessTokenSilently();
-      // Store the token in local storage or a secure storage mechanism
-      localStorage.setItem("token", token);
-      console.log("token", token);
+      const access_token = await getAccessTokenSilently();
+      localStorage.setItem("id_token", access_token);
+      console.log("token", access_token);
     } catch (error) {
       console.error(error);
     }
