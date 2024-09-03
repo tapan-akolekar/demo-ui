@@ -14,7 +14,8 @@ const AuthServer = () => {
   const [data, setData] = useState<DataType[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const access_token = localStorage.getItem("access_token");
+  const access_token = localStorage.getItem("id_token");
+  console.log("tokenn", access_token);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -46,7 +47,6 @@ const AuthServer = () => {
   if (error) {
     return <div>Error: {error}</div>;
   }
-
   return (
     <div>
       <Card>

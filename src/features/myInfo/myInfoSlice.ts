@@ -1,19 +1,27 @@
-// // userSlice.ts
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-interface UserData {
+interface UserInfo {
   id: number;
-  appName: string;
-  clientOrOktaId: number;
-  oktaDomain: string;
-  signOnMode: string;
-  status: string;
-  appUrl: string;
+  name: string;
+  sub: number;
+  locale: string;
+  email: string;
+  preferred_username: string;
+  given_name: string;
+  family_name: string;
+  zoneinfo: string;
+  email_verified: string;
+  lastName: string;
+  firstName: string;
+  oktaSelfServiceToolPermissionGroups: string;
+  userType: string;
+  userID: number;
+  sstGSECGroups: string;
 }
 
 interface UserState {
-  data: UserData[] | null;
+  data: UserInfo | null;
   loading: boolean;
   error: string | null;
 }
@@ -24,8 +32,8 @@ const initialState: UserState = {
   error: null,
 };
 
-export const fetchUserData = createAsyncThunk(
-  "user/fetchUserData",
+export const fetchUserInfo = createAsyncThunk(
+  "userinfo/fetchUserInfo",
   async () => {
     const access_token = localStorage.getItem("id_token");
     const config = {
@@ -33,32 +41,32 @@ export const fetchUserData = createAsyncThunk(
         Authorization: `Bearer ${access_token}`,
       },
     };
+
     const response = await axios.get(
-      "http://localhost:8084/app/appList",
+      "http://localhost:8084/auth/userInfo",
       config
     );
     return response.data;
   }
 );
 
-const applicationSlice = createSlice({
-  name: "user",
+const myInfoSlice = createSlice({
+  name: "userinfo",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchUserData.pending, (state) => {
+      .addCase(fetchUserInfo.pending, (state) => {
         state.loading = true;
       })
-      .addCase(fetchUserData.fulfilled, (state, action) => {
+      .addCase(fetchUserInfo.fulfilled, (state, action) => {
         state.loading = false;
         state.data = action.payload;
       })
-      .addCase(fetchUserData.rejected, (state, action) => {
+      .addCase(fetchUserInfo.rejected, (state, action) => {
         state.loading = false;
-        //  state.error = action.error.message;
       });
   },
 });
 
-export default applicationSlice.reducer;
+export default myInfoSlice.reducer;

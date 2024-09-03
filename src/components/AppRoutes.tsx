@@ -11,7 +11,8 @@ export const AppRoutes = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
+
         <Route
           path="/https://okta.deere.com/selfServiceTool/"
           element={<Home />}

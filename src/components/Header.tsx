@@ -4,6 +4,13 @@ import { IoMdHome } from "react-icons/io";
 import { useAuth0 } from "@auth0/auth0-react";
 const Header = () => {
   const { logout } = useAuth0();
+  const logoutWithRedirect = () => {
+    logout({
+      openUrl() {
+        window.location.href = "https://127.0.0.1:3000/";
+      },
+    });
+  };
   return (
     <div className="header">
       <header className="d-flex flex-wrap justify-content-left py-2 mb-2 border-bottom ">
@@ -73,18 +80,7 @@ const Header = () => {
             </a>
           </li>
           <li>
-            {" "}
-            <button
-              onClick={() =>
-                logout({
-                  logoutParams: {
-                    returnTo: `${window.location.origin}/logout-confirmation`,
-                  },
-                })
-              }
-            >
-              Log Out
-            </button>
+            <button onClick={() => logoutWithRedirect()}>Log Out</button>
           </li>
         </ul>
       </nav>
