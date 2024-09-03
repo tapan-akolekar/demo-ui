@@ -5,14 +5,11 @@ import MyInfo from "./MyInfo";
 import Support from "./Support";
 import Footer from "./Footer";
 import Application from "./Application";
-import Login from "./login/Login";
 
 export const AppRoutes = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Login />} />
-
         <Route
           path="/https://okta.deere.com/selfServiceTool/"
           element={<Home />}
