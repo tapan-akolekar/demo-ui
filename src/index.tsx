@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import { store } from "./app/store";
 import { Auth0Provider } from "@auth0/auth0-react";
+import { BrowserRouter as Router } from "react-router-dom";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -17,6 +18,9 @@ root.render(
     authorizationParams={{
       redirect_uri: window.location.origin,
       audience: "https://dev-qtv5dgs8uks1pc4x.us.auth0.com/api/v2/",
+    }}
+    onRedirectCallback={(appState) => {
+      window.location.replace(appState?.returnTo || "/home");
     }}
   >
     <Provider store={store}>

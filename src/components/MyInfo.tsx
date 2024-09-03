@@ -26,14 +26,10 @@ const MyInfo = () => {
       <Card>
         {data && (
           <>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
             <table>
               <thead>
                 <tr>
-                  &nbsp; <th>Name</th>
+                  <th>Name</th>
                   <th>Sub</th>
                   <th>Email</th>
                   <th>Preferred_username</th>&nbsp; <th>LastName</th>
@@ -42,7 +38,7 @@ const MyInfo = () => {
               </thead>
               <tbody>
                 <tr>
-                  &nbsp;<td> {data.name}</td>
+                  <td> {data.name}</td>
                   <td>{data.sub}</td>
                   <td>{data.email}</td>
                   <td>{data.preferred_username}</td>
@@ -51,17 +47,6 @@ const MyInfo = () => {
                 </tr>
               </tbody>
             </table>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
           </>
         )}
       </Card>

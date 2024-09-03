@@ -18,7 +18,7 @@ const Header = () => {
               className="nav-link"
               role="button"
               aria-expanded="false"
-              href="/https://okta.deere.com/selfServiceTool/"
+              href="/home"
             >
               <IoMdHome className="icon" />
             </a>
@@ -31,7 +31,7 @@ const Header = () => {
               role="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"
-              href="/https://okta.deere.com/selfServiceTool/appCreation"
+              href="/selfServiceTool/appCreation"
             >
               Application
             </a>
@@ -48,7 +48,7 @@ const Header = () => {
               className="nav-link"
               role="button"
               aria-expanded="false"
-              href="/https://okta.deere.com/selfServiceTool/authServerMenu"
+              href="/selfServiceTool/authServerMenu"
             >
               Auth Server
             </a>
@@ -58,7 +58,7 @@ const Header = () => {
               className="nav-link"
               role="button"
               aria-expanded="false"
-              href="/https://okta.deere.com/selfServiceTool/userInfo"
+              href="/selfServiceTool/userInfo"
             >
               My Info
             </a>
@@ -68,7 +68,7 @@ const Header = () => {
               className="nav-link"
               role="button"
               aria-expanded="false"
-              href="/https://okta.deere.com/selfServiceTool/support"
+              href="/selfServiceTool/support"
             >
               Support
             </a>

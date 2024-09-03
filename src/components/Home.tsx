@@ -16,12 +16,7 @@ const Home = () => {
   return (
     <div className="home">
       <Card>
-        <br></br>
-        <br></br>
-        <br></br>
         <button onClick={handleClick}>Search Data</button>
-        <br></br>
-        <br></br>
         {showData && data && (
           <table>
             <thead>
@@ -50,8 +45,6 @@ const Home = () => {
         )}
         {loading && <div>Loading...</div>}
         {error && <div>Error: {error}</div>}
-        <br></br>
-        <br></br>
       </Card>
     </div>
   );

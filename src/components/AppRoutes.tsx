@@ -10,26 +10,14 @@ export const AppRoutes = () => {
   return (
     <Router>
       <Routes>
+        <Route path="/home" element={<Home />} />
+        <Route path="/selfServiceTool/appCreation" element={<Application />} />
         <Route
-          path="/https://okta.deere.com/selfServiceTool/"
-          element={<Home />}
-        />
-        <Route
-          path="/https://okta.deere.com/selfServiceTool/appCreation"
-          element={<Application />}
-        />
-        <Route
-          path="/https://okta.deere.com/selfServiceTool/authServerMenu"
+          path="/selfServiceTool/authServerMenu"
           element={<AuthServer />}
         />
-        <Route
-          path="/https://okta.deere.com/selfServiceTool/userInfo"
-          element={<MyInfo />}
-        />
-        <Route
-          path="https://okta.deere.com/selfServiceTool/support"
-          element={<Support />}
-        />
+        <Route path="/selfServiceTool/userInfo" element={<MyInfo />} />
+        <Route path="/selfServiceTool/support" element={<Support />} />
         <Route path="/footer" element={<Footer />} />
       </Routes>
     </Router>

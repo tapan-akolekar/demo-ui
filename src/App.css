@@ -17,11 +17,7 @@ body {
   margin-top: 0rem;
   padding: 0px;
 }
-footer {
-  position: fixed;
-  background-color: white;
-  padding-right: 638px;
-  padding-left: 204px;
-  bottom: 0;
-  text-align: center;
+.App {
+  overflow-y: auto;
+  height: 100vh;
 }

@@ -5,22 +5,6 @@ import { AppRoutes } from "./components/AppRoutes";
 import Footer from "./components/Footer";
 import { useAuth0 } from "@auth0/auth0-react";
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <div>
-//         <Header />
-//         <main className={"page-content"}>
-//           <AppRoutes />
-//         </main>
-//         <Footer />
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default App;
-
 function App() {
   const {
     loginWithRedirect,

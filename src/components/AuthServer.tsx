@@ -48,11 +48,8 @@ const AuthServer = () => {
     return <div>Error: {error}</div>;
   }
   return (
-    <div>
+    <div className="auth">
       <Card>
-        <br></br>
-        <br></br>
-        <br></br>
         <table>
           <thead>
             <tr>
@@ -73,11 +70,6 @@ const AuthServer = () => {
             ))}
           </tbody>
         </table>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
       </Card>
     </div>
   );
