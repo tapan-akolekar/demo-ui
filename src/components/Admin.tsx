@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Card from "./Card/Card";
-import { useAuth0 } from "@auth0/auth0-react";
 
 const Admin = () => {
   // const { getIdTokenClaims } = useAuth0();

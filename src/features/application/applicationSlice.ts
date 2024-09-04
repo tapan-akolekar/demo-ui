@@ -1,4 +1,3 @@
-// // userSlice.ts
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
@@ -56,7 +55,6 @@ const applicationSlice = createSlice({
       })
       .addCase(fetchUserData.rejected, (state, action) => {
         state.loading = false;
-        //  state.error = action.error.message;
       });
   },
 });

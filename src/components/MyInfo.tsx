@@ -5,7 +5,6 @@ import { fetchUserInfo } from "../features/myInfo/myInfoSlice";
 
 const MyInfo = () => {
   const dispatch = useAppDispatch();
-
   const { data, loading, error } = useAppSelector((state) => state.userinfo);
 
   console.log(data);
