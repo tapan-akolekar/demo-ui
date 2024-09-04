@@ -5,6 +5,7 @@ import { fetchUserInfo } from "../features/myInfo/myInfoSlice";
 
 const MyInfo = () => {
   const dispatch = useAppDispatch();
+
   const { data, loading, error } = useAppSelector((state) => state.userinfo);
 
   console.log(data);
@@ -22,32 +23,31 @@ const MyInfo = () => {
   }
 
   return (
-    <div className="home">
+    <div>
       <Card>
         {data && (
-          <>
-            <table>
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Sub</th>
-                  <th>Email</th>
-                  <th>Preferred_username</th>&nbsp; <th>LastName</th>
-                  <th>FirstName</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td> {data.name}</td>
-                  <td>{data.sub}</td>
-                  <td>{data.email}</td>
-                  <td>{data.preferred_username}</td>
-                  <td>{data.lastName}</td>
-                  <td>{data.firstName}</td>
-                </tr>
-              </tbody>
-            </table>
-          </>
+          <table className="mx-4">
+            <thead className="mx-4">
+              <tr className="mx-4">
+                <th>Name</th>
+                <th>Locale</th>
+                <th>Email</th>
+                <th>Username</th>
+                <th>UserType</th>
+                <th>UserID</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> {data.name}</td>
+                <td>{data.locale}</td>
+                <td>{data.email}</td>
+                <td>{data.preferred_username}</td>
+                <td>{data.userType}</td>
+                <td>{data.userID}</td>
+              </tr>
+            </tbody>
+          </table>
         )}
       </Card>
     </div>

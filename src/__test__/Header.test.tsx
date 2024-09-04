@@ -5,7 +5,7 @@ import Header from "../components/Header";
 describe("Header component", () => {
   it("renders the header title", () => {
     render(<Header />);
-    expect(screen.getByText("Simple Header")).toBeInTheDocument();
+    expect(screen.getByText("POC")).toBeInTheDocument();
   });
 
   it("renders the navigation menu", () => {
