@@ -1,6 +1,4 @@
-import React from "react";
 import Card from "./Card/Card";
-
 const Admin = () => {
   // const { getIdTokenClaims } = useAuth0();
   // const [roles, setRoles] = useState<string[]>([]);

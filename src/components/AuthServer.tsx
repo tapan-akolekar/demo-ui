@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
+import { DataGrid } from "@mui/x-data-grid";
 import Card from "./Card/Card";
 
 interface DataType {
@@ -10,12 +11,20 @@ interface DataType {
   status: string;
 }
 
+const columns = [
+  { field: "name", headerName: "Name", width: 150 },
+  { field: "audience", headerName: "Audience", width: 150 },
+  { field: "issuerUri", headerName: "IssueURL", width: 200 },
+  { field: "status", headerName: "Status", width: 100 },
+];
+
 const AuthServer = () => {
   const [data, setData] = useState<DataType[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const access_token = localStorage.getItem("id_token");
   console.log("tokenn", access_token);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -25,7 +34,7 @@ const AuthServer = () => {
           },
         };
         const response = await axios.get(
-          "http://localhost:8084/authServer/authServerList",
+          "http://localhost:8080/authServer/authServerList",
           config
         );
         const data = response.data;
@@ -33,7 +42,6 @@ const AuthServer = () => {
         setLoading(false);
       } catch (error: any) {
         setError(error.message);
-        setLoading(false);
         setLoading(false);
       }
     };
@@ -47,29 +55,25 @@ const AuthServer = () => {
   if (error) {
     return <div>Error: {error}</div>;
   }
+  const getRowId = (row: any) => row.name;
   return (
     <div className="auth">
       <Card>
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Audience</th>
-              <th>IssueURL</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((item) => (
-              <tr key={item.id}>
-                <td>{item.name}</td>
-                <td>{item.audience}</td>
-                <td>{item.issuerUri}</td>
-                <td>{item.status}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <div
+          style={{
+            height: 400,
+            width: "97%",
+            paddingLeft: "28px",
+            paddingTop: "45px",
+          }}
+        >
+          <DataGrid
+            rows={data}
+            columns={columns}
+            getRowId={getRowId}
+            checkboxSelection
+          />{" "}
+        </div>
       </Card>
     </div>
   );

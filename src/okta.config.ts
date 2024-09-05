@@ -13,5 +13,4 @@ const oktaConfig: OktaConfig = {
 };
 
 const oktaAuth = new OktaAuth(oktaConfig);
-
 export default oktaAuth;

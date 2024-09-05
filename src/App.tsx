@@ -13,26 +13,34 @@ function App() {
     isLoading,
   } = useAuth0();
 
+  // useEffect(() => {
+  //   if (!isAuthenticated && !isLoading) {
+  //     loginWithRedirect();
+  //   } else {
+  //     try {
+  //       getAccessTokenSilently().then((access_token) => {
+  //         localStorage.setItem("id_token", access_token);
+  //       });
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   }
+  // }, [isAuthenticated, isLoading, loginWithRedirect, getAccessTokenSilently]);
+
   useEffect(() => {
-    const handleAuth = async () => {
-      if (!isAuthenticated && !isLoading) {
-        try {
-          await loginWithRedirect();
-        } catch (error) {
-          console.error(error);
-        }
-      } else {
-        try {
-          const access_token = await getAccessTokenSilently();
+    console.log("Effect called");
+    if (!isAuthenticated && !isLoading) {
+      loginWithRedirect();
+    } else {
+      getAccessTokenSilently()
+        .then((access_token) => {
           localStorage.setItem("id_token", access_token);
-          console.log("token", access_token);
-        } catch (error) {
+        })
+        .catch((error) => {
           console.error(error);
-        }
-      }
-    };
-    handleAuth();
-  }, [isAuthenticated, loginWithRedirect, getAccessTokenSilently, isLoading]);
+        });
+    }
+  });
 
   return (
     <div className="App">

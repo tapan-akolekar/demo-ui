@@ -43,7 +43,7 @@ export const fetchUserInfo = createAsyncThunk(
     };
 
     const response = await axios.get(
-      "http://localhost:8084/auth/userInfo",
+      "http://localhost:8080/auth/userInfo",
       config
     );
     return response.data;

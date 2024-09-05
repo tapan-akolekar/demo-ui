@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import Card from "./Card/Card";
 import { fetchUserInfo } from "../features/myInfo/myInfoSlice";
-
+import "./MyInfo.css";
 const MyInfo = () => {
   const dispatch = useAppDispatch();
   const { data, loading, error } = useAppSelector((state) => state.userinfo);
@@ -25,28 +25,75 @@ const MyInfo = () => {
     <div>
       <Card>
         {data && (
-          <table className="mx-4">
-            <thead className="mx-4">
-              <tr className="mx-4">
-                <th>Name</th>
-                <th>Locale</th>
-                <th>Email</th>
-                <th>Username</th>
-                <th>UserType</th>
-                <th>UserID</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td> {data.name}</td>
-                <td>{data.locale}</td>
-                <td>{data.email}</td>
-                <td>{data.preferred_username}</td>
-                <td>{data.userType}</td>
-                <td>{data.userID}</td>
-              </tr>
-            </tbody>
-          </table>
+          <div className="infodetail">
+            <table className="myinfo">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <td> {data.name}</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>Sub</th>
+                  <td>{data.sub}</td>
+                </tr>
+                <tr>
+                  <th>Locale</th>
+                  <td>{data.locale}</td>
+                </tr>
+                <tr>
+                  <th>Email</th>
+                  <td>{data.email}</td>
+                </tr>
+                <tr>
+                  <th>Username</th>
+                  <td>{data.preferred_username}</td>
+                </tr>
+                <tr>
+                  <th>given_name</th>
+                  <td>{data.given_name}</td>
+                </tr>
+                <tr>
+                  <th>family_name</th>
+                  <td>{data.family_name}</td>
+                </tr>
+                <tr>
+                  <th>zoneinfo</th>
+                  <td>{data.zoneinfo}</td>
+                </tr>
+
+                <tr>
+                  <th>lastName</th>
+                  <td>{data.lastName}</td>
+                </tr>
+                <tr>
+                  <th>firstName</th>
+                  <td>{data.firstName}</td>
+                </tr>
+                <tr>
+                  <th>firstName</th>
+                  <td>{data.lastName}</td>
+                </tr>
+                <tr>
+                  <th>oktaSelfServiceToolPermissionGroups</th>
+                  <td>{data.oktaSelfServiceToolPermissionGroups}</td>
+                </tr>
+                <tr>
+                  <th>userType</th>
+                  <td>{data.userType}</td>
+                </tr>
+                <tr>
+                  <th>userID</th>
+                  <td>{data.userID}</td>
+                </tr>
+                <tr>
+                  <th>sstGSECGroups</th>
+                  <td>{data.sstGSECGroups}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         )}
       </Card>
     </div>

@@ -1,4 +1,3 @@
-import React from "react";
 import Card from "./Card/Card";
 
 const Application = () => {
@@ -6,7 +5,7 @@ const Application = () => {
     <div>
       <Card>
         <br></br>
-        <h5>This is application page!</h5>
+        <h5>This is Application Page!</h5>
       </Card>
     </div>
   );

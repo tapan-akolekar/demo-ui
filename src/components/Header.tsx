@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./Header.css";
 import { IoMdHome } from "react-icons/io";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -6,27 +6,29 @@ import { useAuth0 } from "@auth0/auth0-react";
 const Header = () => {
   const { logout, user } = useAuth0();
   const [roles, setRoles] = useState<string[]>([]);
-
+  const [isActive, setIsActive] = useState(false);
   useEffect(() => {
     if (user) {
       setRoles(user.autorization.authorization?.roles);
       console.log(roles);
     }
   }, [roles, user]);
+
   return (
     <div className="header">
-      <header className="d-flex flex-wrap justify-content-left py-2 mb-2 border-bottom ">
+      <header className="d-flex flex-wrap justify-content-left  mb-2 border-bottom ">
         <span className="fs-4 mx-4">POC</span>
       </header>
 
       <nav className="navbar-expand-md navbar-light bg-light mb-1 border-bottom">
         <ul className="navbar-nav me-auto mb-0 mb-lg-0">
-          <li className="nav-item ">
+          <li className="nav-item  ">
             <a
-              className="nav-link"
+              className={isActive ? "nav-link active" : "nav-link"}
               role="button"
               aria-expanded="false"
               href="/home"
+              onClick={() => setIsActive(true)}
             >
               <IoMdHome className="icon" />
             </a>
@@ -45,7 +47,10 @@ const Header = () => {
             </a>
             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
               <li>
-                <a className="dropdown-item" href="/addApplication">
+                <a
+                  className="dropdown-item"
+                  href="/selfServiceTool/appCreation"
+                >
                   Add Application
                 </a>
               </li>
@@ -53,7 +58,7 @@ const Header = () => {
           </li>
           <li className="nav-item">
             <a
-              className="nav-link"
+              className="nav-link "
               role="button"
               aria-expanded="false"
               href="/selfServiceTool/authServerMenu"

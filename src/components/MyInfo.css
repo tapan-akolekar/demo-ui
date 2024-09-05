@@ -1,0 +1,14 @@
+.myinfo {
+  border: 1px solid black;
+  margin-left: 110px;
+}
+.infodetail {
+  padding-top: 65px;
+  font-size: small;
+}
+th,
+td {
+  border: 1px solid black;
+
+  text-align: center;
+}

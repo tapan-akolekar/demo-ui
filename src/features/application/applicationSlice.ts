@@ -33,7 +33,7 @@ export const fetchUserData = createAsyncThunk(
       },
     };
     const response = await axios.get(
-      "http://localhost:8084/app/appList",
+      "http://localhost:8080/app/appList",
       config
     );
     return response.data;
