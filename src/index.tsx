@@ -1,4 +1,3 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
@@ -7,20 +6,23 @@ import { Provider } from "react-redux";
 import { store } from "./app/store";
 import { Auth0Provider } from "@auth0/auth0-react";
 
+const onRedirectCallback = (appState: any) => {
+  window.history.pushState({}, document.title, appState?.returnTo || "/home");
+  window.location.href = appState?.returnTo || "/home";
+};
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <Auth0Provider
-    domain="dev-qtv5dgs8uks1pc4x.us.auth0.com"
-    clientId="vj3J8Jsfdh1I7pxOLlAtCcFcfRnZD07i"
+    domain={process.env.APP_CLIENT_DOMAIN ? process.env.APP_CLIENT_DOMAIN : ""}
+    clientId={process.env.APP_CLIENT_ID ? process.env.APP_CLIENT_ID : ""}
     authorizationParams={{
       redirect_uri: window.location.origin,
-      audience: "https://dev-qtv5dgs8uks1pc4x.us.auth0.com/api/v2/",
+      audience: process.env.APP_AUDIENCE ? process.env.APP_AUDIENCE : "",
+      scope: "openid profile email",
     }}
-    onRedirectCallback={(appState) => {
-      window.location.replace(appState?.returnTo || "/home");
-    }}
+    onRedirectCallback={onRedirectCallback}
   >
     <Provider store={store}>
       <App />

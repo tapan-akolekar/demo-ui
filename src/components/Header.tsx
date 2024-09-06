@@ -6,7 +6,8 @@ import { useAuth0 } from "@auth0/auth0-react";
 const Header = () => {
   const { logout, user } = useAuth0();
   const [roles, setRoles] = useState<string[]>([]);
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState("");
+
   useEffect(() => {
     if (user) {
       setRoles(user.autorization.authorization?.roles);
@@ -28,12 +29,10 @@ const Header = () => {
               role="button"
               aria-expanded="false"
               href="/home"
-              onClick={() => setIsActive(true)}
             >
               <IoMdHome className="icon" />
             </a>
           </li>
-
           <li className="nav-item dropdown">
             <a
               className="nav-link dropdown-toggle "
@@ -68,7 +67,7 @@ const Header = () => {
           </li>
           <li className="nav-item">
             <a
-              className="nav-link"
+              className="nav-link active"
               role="button"
               aria-expanded="false"
               href="/selfServiceTool/userInfo"
@@ -78,7 +77,7 @@ const Header = () => {
           </li>
           <li className="nav-item">
             <a
-              className="nav-link"
+              className="nav-link "
               role="button"
               aria-expanded="false"
               href="/selfServiceTool/support"
@@ -107,7 +106,7 @@ const Header = () => {
                 onClick={() =>
                   logout({
                     logoutParams: {
-                      returnTo: `${window.location.origin}/logout-confirmation`,
+                      returnTo: `${window.location.origin}/signout`,
                     },
                   })
                 }

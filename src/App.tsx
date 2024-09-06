@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import { AppRoutes } from "./components/AppRoutes";
@@ -13,34 +13,25 @@ function App() {
     isLoading,
   } = useAuth0();
 
-  // useEffect(() => {
-  //   if (!isAuthenticated && !isLoading) {
-  //     loginWithRedirect();
-  //   } else {
-  //     try {
-  //       getAccessTokenSilently().then((access_token) => {
-  //         localStorage.setItem("id_token", access_token);
-  //       });
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   }
-  // }, [isAuthenticated, isLoading, loginWithRedirect, getAccessTokenSilently]);
-
   useEffect(() => {
-    console.log("Effect called");
+    console.log(isAuthenticated);
     if (!isAuthenticated && !isLoading) {
       loginWithRedirect();
-    } else {
-      getAccessTokenSilently()
-        .then((access_token) => {
-          localStorage.setItem("id_token", access_token);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+    } else if (isAuthenticated) {
+      getAccessTokenSilently().then((token) => {
+        console.log("access_token", token);
+        localStorage.setItem("it_token", token);
+      });
     }
-  });
+  }, [isAuthenticated, isLoading, loginWithRedirect, getAccessTokenSilently]);
+
+  if (isLoading) {
+    return (
+      <div className="loader-container">
+        <div className="loader"></div>
+      </div>
+    );
+  }
 
   return (
     <div className="App">

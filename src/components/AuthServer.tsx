@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { DataGrid } from "@mui/x-data-grid";
 import Card from "./Card/Card";
-
+import "../App.css";
 interface DataType {
   id: number;
   name: string;
@@ -23,7 +23,6 @@ const AuthServer = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const access_token = localStorage.getItem("id_token");
-  console.log("tokenn", access_token);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -48,8 +47,15 @@ const AuthServer = () => {
     fetchData();
   }, [access_token]);
 
+  // if (loading) {
+  //   return <div>Loading...</div>;
+  // }
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="loader-container">
+        <div className="loader"></div>
+      </div>
+    );
   }
 
   if (error) {
