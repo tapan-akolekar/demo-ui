@@ -32,7 +32,7 @@ const Home = () => {
           Search
         </Button>
         {showData && data && (
-          <div style={{ height: 350, width: "97%", paddingLeft: "28px" }}>
+          <div style={{ height: 400, width: "97%", paddingLeft: "28px" }}>
             <DataGrid
               rows={data}
               columns={columns}

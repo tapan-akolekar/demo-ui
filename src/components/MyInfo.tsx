@@ -6,9 +6,6 @@ import "./MyInfo.css";
 const MyInfo = () => {
   const dispatch = useAppDispatch();
   const { data, loading, error } = useAppSelector((state) => state.userinfo);
-
-  console.log(data);
-
   useEffect(() => {
     dispatch(fetchUserInfo());
   }, [dispatch]);

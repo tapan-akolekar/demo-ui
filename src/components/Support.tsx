@@ -1,5 +1,4 @@
 import Card from "./Card/Card";
-
 const Support = () => {
   return (
     <div>

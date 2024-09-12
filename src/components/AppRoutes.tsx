@@ -5,7 +5,6 @@ import MyInfo from "./MyInfo";
 import Support from "./Support";
 import Footer from "./Footer";
 import Application from "./Application";
-import Admin from "./Admin";
 
 export const AppRoutes = () => {
   return (
@@ -19,7 +18,6 @@ export const AppRoutes = () => {
         />
         <Route path="/selfServiceTool/userInfo" element={<MyInfo />} />
         <Route path="/selfServiceTool/support" element={<Support />} />
-        <Route path="/selfServiceTool/admin" element={<Admin />} />
         <Route path="/footer" element={<Footer />} />
       </Routes>
     </Router>

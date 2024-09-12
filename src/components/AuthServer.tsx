@@ -47,9 +47,6 @@ const AuthServer = () => {
     fetchData();
   }, [access_token]);
 
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
   if (loading) {
     return (
       <div className="loader-container">

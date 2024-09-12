@@ -1,20 +1,6 @@
-import { useEffect, useState } from "react";
 import "./Header.css";
 import { IoMdHome } from "react-icons/io";
-import { useAuth0 } from "@auth0/auth0-react";
-
 const Header = () => {
-  const { logout, user } = useAuth0();
-  const [roles, setRoles] = useState<string[]>([]);
-  const [isActive, setIsActive] = useState("");
-
-  useEffect(() => {
-    if (user) {
-      setRoles(user.autorization.authorization?.roles);
-      console.log(roles);
-    }
-  }, [roles, user]);
-
   return (
     <div className="header">
       <header className="d-flex flex-wrap justify-content-left  mb-2 border-bottom ">
@@ -25,7 +11,7 @@ const Header = () => {
         <ul className="navbar-nav me-auto mb-0 mb-lg-0">
           <li className="nav-item  ">
             <a
-              className={isActive ? "nav-link active" : "nav-link"}
+              className="nav-link active"
               role="button"
               aria-expanded="false"
               href="/home"
@@ -85,31 +71,25 @@ const Header = () => {
               Support
             </a>
           </li>
-          {roles.includes("Admin") && (
-            <li className="nav-item">
-              <a
-                className="nav-link"
-                role="button"
-                aria-expanded="false"
-                href="/selfServiceTool/admin"
-              >
-                Admin
-              </a>
-            </li>
-          )}
+
+          <li className="nav-item">
+            <a
+              className="nav-link"
+              role="button"
+              aria-expanded="false"
+              href="/selfServiceTool/admin"
+            >
+              Admin
+            </a>
+          </li>
+
           <ul className="navbar-nav ms-auto mb-0 mb-lg-0 mr-3">
             <li className="nav-item">
               <a
                 className="nav-link "
                 role="button"
                 aria-expanded="false"
-                onClick={() =>
-                  logout({
-                    logoutParams: {
-                      returnTo: `${window.location.origin}/signout`,
-                    },
-                  })
-                }
+                href="/logout"
               >
                 Log Out
               </a>
